@@ -1,10 +1,10 @@
-package model;
+package com.Proyecto.ParroquiaMDG.model;
 
 import java.util.List;
 
 import javax.persistence.*;
 
-// Entidad
+// decora Entidad
 @Entity
 // Relacion Con Tabla BD
 @Table(name = "tipoDocumento")
@@ -13,20 +13,26 @@ public class TipoDocumento {
     // Atributos
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_Tipo_Documento")
     private int idTipoDocumento;
 
-    @Column(name = "nombreTipoUsuario", length = 20)
+    @Column(name = "denominacion_Tipo_Documento", length = 20)
     private String denominacionTipoDocumento;
 
-    // Relacion 1 a N con Usuario
-    @OneToMany(mappedBy = "TipoDocumento")
-    private List<Usuario> Usuario;
+    /*
+     * // Relacion 1 a N con Usuario
+     * 
+     * @OneToMany(mappedBy = "Tipo_Documento") private List<Usuario> Usuario;
+     */
 
     public TipoDocumento() {
     }
 
-    public TipoDocumento(int idTipoDocumento, String denominacionTipoDocumento) {
-        this.idTipoDocumento = idTipoDocumento;
+    // quite llave primaria porque si se usa para las pruebas un registro lo va a ir
+    // llenando
+    // insetar datos directamente test
+    public TipoDocumento(String denominacionTipoDocumento) {
+
         this.denominacionTipoDocumento = denominacionTipoDocumento;
     }
 

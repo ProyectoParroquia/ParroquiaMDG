@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+    <form th:action="@{/Curso/save}" method="POST" th:object="${form}">
+
+        <input type="hidden" name="idCurso" th:field="{Curso.idCurso}" th:value="{Curso != null} ? *{Curso.idCurso}">
+
+
+        <div class="mb-3">
+            <label form="nomTipoCurso">Tipo de Curso</label>
+            <select th:object="${form}" th:field="*{Curso.idTipoCursoFK}" style="padding: 5px;">
+                <option th:each="tcItem: *{lTCur}" th:value="${tcItem.idTipoCurso}" th:utext="${tcItem.nomTipoCurso}">
+                </option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label form="estadoCurso">Estado</label>
+            <input type="text" th:field="{Curso.estadoCurso}" th:value="{Curso != null} ? *{Curso.estadoCurso}">
+        </div>
+
+        <div class="mb-3">
+            <label form="nombreCurso">Nombre</label>
+            <input type="text" th:field="{Curso.nombreCurso}" th:value="{Curso != null} ? *{Curso.nombreCurso}">
+        </div>
+
+        <div class="mb-3">
+            <label form="fechaInicialCurso">Fecha Inicial</label>
+            <input type="date" th:field="{Curso.fechaInicialCurso}"
+                th:value="{Curso != null} ? *{Curso.fechaInicialCurso}">
+        </div>
+
+        <div class="mb-3">
+            <label form="fechaFinalCurso">fecha Final</label>
+            <input type="date" th:field="{Curso.fechaFinalCurso}" th:value="{Curso != null} ? *{Curso.fechaFinalCurso}">
+        </div>
+
+        <div class="mb-3">
+            <label form="costoCurso">costo</label>
+            <input type="number" th:field="{Curso.costoCurso}" th:value="{Curso != null} ? *{Curso.costoCurso}">
+        </div>
+
+        <div class="mb-3">
+            <input type="submit" class="btn btn-primary" value="Guardar">
+        </div>
+
+
+
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

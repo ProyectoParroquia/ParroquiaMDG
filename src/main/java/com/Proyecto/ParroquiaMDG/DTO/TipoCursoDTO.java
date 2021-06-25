@@ -1,33 +1,15 @@
-package model;
+package com.Proyecto.ParroquiaMDG.DTO;
 
-import java.util.List;
-
-import javax.persistence.*;
-
-// Entidad
-@Entity
-// Relacion Con Tabla BD
-@Table(name = "tipoCurso")
-public class TipoCurso {
-    // Atributos
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class TipoCursoDTO {
     private int idTipoCurso;
-
-    @Column(name = "categoriaCurso", length = 20)
     private String categoriaCurso;
 
-    // Relacion 1 a N con Curso
-    @OneToMany(mappedBy = "TipoCurso")
-    private List<Curso> Curso;
-
-    public TipoCurso(int idTipoCurso, String categoriaCurso) {
-        this.idTipoCurso = idTipoCurso;
-        this.categoriaCurso = categoriaCurso;
+    public TipoCursoDTO() {
     }
 
-    public TipoCurso() {
+    public TipoCursoDTO(int idTipoCurso, String categoriaCurso) {
+        this.idTipoCurso = idTipoCurso;
+        this.categoriaCurso = categoriaCurso;
     }
 
     public int getIdTipoCurso() {

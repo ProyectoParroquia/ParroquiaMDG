@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>formulario</title>
+</head>
+
+<body>
+    <form th:action="@{/tipodoc/save}" method="POST" th:object="${form}">
+        <input type="hidden" th:field="*{tdoc.idTipoDocumento}">
+        <div>
+            <label form="denominacionTipoDocumento">Tipo doc</label>
+            <input type="text" th:field="*{tdoc.denominacionTipoDocumento}">
+        </div>
+        <input type="submit" value="Guardar">
+    </form>
+</body>
+
+</html>

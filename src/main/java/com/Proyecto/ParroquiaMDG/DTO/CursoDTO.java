@@ -1,53 +1,20 @@
-package model;
+package com.Proyecto.ParroquiaMDG.DTO;
 
-import java.util.List;
-
-import javax.persistence.*;
-
-// Entidad
-@Entity
-// Relacion Con Tabla BD
-@Table(name = "Curso")
-public class Curso {
-
-    // Atributos
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class CursoDTO {
     private int idCurso;
-
-    @Column(name = "estadoCurso", length = 10)
     private String estadoCurso;
-
-    @Column(name = "nombreCurso", length = 20)
     private String nombreCurso;
-
-    @Column(name = "fechaInicialCurso", length = 10)
     private String fechaInicialCurso;
-
-    @Column(name = "fechaFinalCurso", length = 10)
     private String fechaFinalCurso;
-
-    @Column(name = "costoCurso")
     private int costoCurso;
-
-    @Column(name = "idTipoCursoFK")
     private int idTipoCursoFK;
+    private TipoCursoDTO TipoCurso;
 
-    // Relacion N a 1 con TipoCurso
-    @ManyToOne
-    @JoinColumn(name = "idTipoCursoFK", insertable = false, updatable = false)
-    private TipoCurso TipoCurso;
-
-    // Relacion 1 a N con Requisitos
-    @OneToMany(mappedBy = "Curso")
-    private List<Requisitos> Requisitos;
-
-    public Curso() {
+    public CursoDTO() {
     }
 
-    public Curso(int idCurso, String estadoCurso, String nombreCurso, String fechaInicialCurso, String fechaFinalCurso,
-            int costoCurso, int idTipoCursoFK) {
+    public CursoDTO(int idCurso, String estadoCurso, String nombreCurso, String fechaInicialCurso,
+            String fechaFinalCurso, int costoCurso, int idTipoCursoFK, TipoCursoDTO tipoCurso) {
         this.idCurso = idCurso;
         this.estadoCurso = estadoCurso;
         this.nombreCurso = nombreCurso;
@@ -55,6 +22,7 @@ public class Curso {
         this.fechaFinalCurso = fechaFinalCurso;
         this.costoCurso = costoCurso;
         this.idTipoCursoFK = idTipoCursoFK;
+        TipoCurso = tipoCurso;
     }
 
     public int getIdCurso() {
@@ -111,6 +79,14 @@ public class Curso {
 
     public void setIdTipoCursoFK(int idTipoCursoFK) {
         this.idTipoCursoFK = idTipoCursoFK;
+    }
+
+    public TipoCursoDTO getTipoCurso() {
+        return TipoCurso;
+    }
+
+    public void setTipoCurso(TipoCursoDTO tipoCurso) {
+        TipoCurso = tipoCurso;
     }
 
 }

@@ -1,4 +1,4 @@
-package model;
+package com.Proyecto.ParroquiaMDG.model;
 
 import java.util.List;
 
@@ -33,7 +33,7 @@ public class Usuario {
     @Column(name = "fechaNacimientoUsuario", length = 10)
     private String fechaNacimientoUsuario;
 
-    @Column(name = "numeroDocumentoUsuario")
+    @Column(name = "idTipoDocumentoUFK")
     private int idTipoDocumentoUFK;
 
     @Column(name = "idTipoUsuarioUFK")
@@ -51,10 +51,14 @@ public class Usuario {
     @OneToMany(mappedBy = "Usuario")
     private List<AnuncioUsuario> AnuncioUsuario;
 
-    // Relacion N a 1 con TipoDocumento
-    @ManyToOne
-    @JoinColumn(name = "idTipoDocumentoUFK", insertable = false, updatable = false)
-    private TipoDocumento TipoDocumento;
+    /*
+     * // Relacion N a 1 con TipoDocumento
+     * 
+     * @ManyToOne
+     * 
+     * @JoinColumn(name = "id_Tipo_DocumentoUFK", insertable = false, updatable =
+     * false) private TipoDocumento Tipo_Documento;
+     */
 
     // Relacion N a 1 con TipoUsuario
     @ManyToOne
@@ -66,7 +70,8 @@ public class Usuario {
 
     public Usuario(int idUsuario, String estadoUsuario, String nombreUsuario, String apellidoUsuario,
             String correoUsuario, int numeroDocumentoUsuario, String fechaNacimientoUsuario, int idTipoDocumentoUFK,
-            int idTipoUsuarioUFK, model.TipoDocumento tipoDocumento, model.TipoUsuario tipoUsuario) {
+            int idTipoUsuarioUFK, com.Proyecto.ParroquiaMDG.model.TipoDocumento tipoDocumento,
+            com.Proyecto.ParroquiaMDG.model.TipoUsuario tipoUsuario) {
         this.idUsuario = idUsuario;
         this.estadoUsuario = estadoUsuario;
         this.nombreUsuario = nombreUsuario;
@@ -76,8 +81,6 @@ public class Usuario {
         this.fechaNacimientoUsuario = fechaNacimientoUsuario;
         this.idTipoDocumentoUFK = idTipoDocumentoUFK;
         this.idTipoUsuarioUFK = idTipoUsuarioUFK;
-        TipoDocumento = tipoDocumento;
-        TipoUsuario = tipoUsuario;
     }
 
     public int getIdUsuario() {
@@ -150,22 +153,6 @@ public class Usuario {
 
     public void setIdTipoUsuarioUFK(int idTipoUsuarioUFK) {
         this.idTipoUsuarioUFK = idTipoUsuarioUFK;
-    }
-
-    public TipoDocumento getTipoDocumento() {
-        return TipoDocumento;
-    }
-
-    public void setTipoDocumento(TipoDocumento tipoDocumento) {
-        TipoDocumento = tipoDocumento;
-    }
-
-    public TipoUsuario getTipoUsuario() {
-        return TipoUsuario;
-    }
-
-    public void setTipoUsuario(TipoUsuario tipoUsuario) {
-        TipoUsuario = tipoUsuario;
     }
 
 }
