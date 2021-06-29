@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Usuarios</h1>
+        <a class="btn btn-primary" th:href="@{new}" role="button">Nuevo</a>
+        <table class="table table-responsive">
+            <thead>
+                <th>Id</th>
+                <th>Tipo <br> Curso</th>
+                <th>Estado</th>
+                <th>fecha <br>Inicial</th>
+                <th>fecha <br>Final</th>
+                <th>Costo</th>
+                <th colspan="2">Acciones</th>
+            </thead>
+            <tbody>
+                <tr th:each="cu:${listCu}">
+                    <td th:text="${cu.idCurso}"></td>
+                    <td th:text="${cu.TipoCurso.categoriaCurso}">
+                    <td th:text="${cu.estadoCurso}"></td>
+                    <td th:text="${cu.nombreCurso}"></td>
+                    <td th:text="${cu.fechaInicialCurso}"></td>
+                    <td th:text="${cu.fechaFinalCurso}"></td>
+                    <td th:text="${cu.costoCurso}"></td>
+
+                    <td>
+                        <a class="btn btn-warning" th:href="@{edit/} + ${cu.idCurso}" role="button">Editar</a>
+                    </td>
+                    <td>
+                        <a class="btn btn-danger"
+                            onclick="javascript:return confirm('Seguro que desea eliminar el registro?');"
+                            th:href="@{delete/} + ${cu.idCurso}" role="button">Borrar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
