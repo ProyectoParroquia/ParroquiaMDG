@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--cdn booststap-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" 
+    crossorigin="anonymous">
+    <title>Document</title>
+</head>
+<body>
+  <nav class="navbar navbar-light bg-dark">
+      <span class="navbar-brand m-auto h1 text-white text-center p-4">
+          Consultar api de java con Ajax y Jquery
+      </span>
+
+  </nav>
+<div class="container">
+    <div class="row">
+        <div class="col-8- mt-5">
+            <table class="table table-bordered table-hover text-center">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>categoria Curso<br>
+                        <th></th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                    <tbody id="tbody">
+
+                    </tbody>
+            </table>
+        </div>
+        <div class="col-4 ml-auto" style="margin-top: 50px;">
+            <div class="ml-5">
+                <div class="form-group">
+                    <input type="text" class="form-control font-italic" id="categoriaCurso" placeholder="Nombre de tipo curso" />
+                </div>
+                <input  type="hidden" id="idTipoCurso" >
+                <button id="agregar" class="btn btn-success btn-block">Agregar tipo Curso</button>
+                    <button id="editar" class="btn btn-success btn-block" style="display: none;">Editar tipo Curso</button>
+                       </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+    <!---cdn jquery-->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" 
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" 
+    crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    
+</body>
+</html>
